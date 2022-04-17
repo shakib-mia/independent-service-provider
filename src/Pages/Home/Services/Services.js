@@ -11,7 +11,6 @@ const Services = () => {
                   .then(data => getServices(data))
       }, []);
 
-      console.log(services)
       return (
             <Container className='my-5'>
                   <h1 className='text-center'>Our Packages</h1>
