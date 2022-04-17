@@ -1,0 +1,23 @@
+[
+      {
+            "id": "1",
+            "title": "Silver",
+            "description": "You can get here Materials for Schools",
+            "price": "$10",
+            "img": "services/service1.jpg"
+      },
+      {
+            "id": "2",
+            "title": "Gold",
+            "description": "You can get here Materials for Schools, Private Schools, Home School, Nursery Schools",
+            "price": "$50",
+            "img": "services/service2.jpg"
+      },
+      {
+            "id": "3",
+            "title": "Diamond",
+            "description": "You can get here Materials for Schools, Private Schools, Home School, Nursery Schools, Child Care Providers, Parents & Grandparents",
+            "price": "$100",
+            "img": "services/service3.jpg"
+      }
+]

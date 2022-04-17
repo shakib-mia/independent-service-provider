@@ -1,10 +1,13 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import banner from '../../images/banner.jpg'
+import Banner from './Banner/Banner';
+import Services from './Services/Services';
 
 const Home = () => {
       return (
-            <div></div>
+            <div>
+                  <Banner></Banner>
+                  <Services></Services>
+            </div>
       );
 };
 
