@@ -53,7 +53,7 @@ const GithubSignIn = () => {
 
 const Register = () => {
       return (
-            <div className='shadow col-6 mx-auto p-4'>
+            <div className='shadow col-12 col-md-6 mx-auto p-4'>
                   <h1 className='text-center'>Please Register</h1>
 
                   <form>
