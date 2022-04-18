@@ -21,27 +21,36 @@ const Blogs = () => {
                               </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1">
-                              <Accordion.Header>Accordion Item #2</Accordion.Header>
+                              <Accordion.Header>Why I use Firebase? What are the other options?</Accordion.Header>
                               <Accordion.Body>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                    est laborum.
+                                    <p>I use firebase, because firebase is simple, lightweight, beginners friendly and industrially recognized.</p>
+                                    <p>
+                                          We can use other options instead of firebase. They are...
+                                          <ul>
+                                                <li>Flutter</li>
+                                                <li>Parse.</li>
+                                                <li>Back4App</li>
+                                                <li>AWS Amplify</li>
+                                                <li>Kuzzle</li>
+                                                <li>Couchbase</li>
+                                                <li>NativeScripts</li>
+                                                <li>RxDB</li>
+                                                ...and so on
+                                          </ul>
+                                    </p>
                               </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
-                              <Accordion.Header>Accordion Item #2</Accordion.Header>
+                              <Accordion.Header>Without Authentication, what can we do in firebase?</Accordion.Header>
                               <Accordion.Body>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                    est laborum.
+                                    <p>Besides authentication firebase offers a number of services. They are</p>
+                                    <dt>Analytics:</dt>
+                                    <dd>That presents data about user behavior in iOS and Android Apps</dd>
+                                    <dt>Cloud Messaging:</dt>
+                                    <dd>It lets companies reliably receive and send messages on iOS, Android without any cost.</dd>
+                                    <dt>Performance Monitoring Service</dt>
+                                    <dd>It gives developers insight into the performance characteristics of their iOS and Android app</dd>
+                                    and so on...
                               </Accordion.Body>
                         </Accordion.Item>
                   </Accordion>
