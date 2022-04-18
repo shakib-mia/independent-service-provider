@@ -20,9 +20,12 @@ const register = event => {
             createUserWithEmailAndPassword(auth, email, password, firstName, lastName)
                   .then(result => {
                         const user = result.user;
-                        localStorage.setItem('email', user.email)
+                        localStorage.setItem('email', user.email);
+                        localStorage.setItem("name", firstName + " " + lastName);
+                        window.location.reload();
                   })
-                  .catch(err => document.getElementById('error').innerText = err)
+                  .catch(err => document.getElementById('error').innerText = err);
+
       } else {
             alert("passwords didn't match")
       }

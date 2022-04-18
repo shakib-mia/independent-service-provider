@@ -17,7 +17,7 @@ const Header = () => {
                                           <NavLink to="/services" className='nav-link text-white'>Services</NavLink>
                                           <NavLink to="/blogs" className="nav-link text-white">Blogs</NavLink>
                                           {
-                                                email ? <span className='text-white my-auto'>{localStorage.getItem('name')} <button>SignOut</button></span> : <NavLink to="/login" className='nav-link text-white'>Sign In</NavLink>
+                                                email ? <span className='text-white my-auto'>{localStorage.getItem('name')} <button className='btn btn-secondary'>SignOut</button></span> : <NavLink to="/login" className='nav-link text-white'>Sign In</NavLink>
                                           }
                                     </Nav>
                               </Navbar.Collapse>
