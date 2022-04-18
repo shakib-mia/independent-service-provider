@@ -3,7 +3,7 @@ import { Accordion, Container } from 'react-bootstrap';
 
 const Blogs = () => {
       return (
-            <Container className='col-12 col-md-4 col-lg-6'>
+            <Container className='col-12 col-md-6 col-lg-6'>
                   <h1 className='mt-4 text-center'>Blogs</h1>
                   <Accordion defaultActiveKey="0" className=' mt-5'>
                         <Accordion.Item eventKey="0">
