@@ -36,8 +36,9 @@ const GoogleSignIn = () => {
       const provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider)
             .then(result => {
-                  localStorage.setItem("email", result.user.email)
-                  localStorage.setItem("name", result.user.displayName)
+                  localStorage.setItem("email", result.user.email);
+                  localStorage.setItem("name", result.user.displayName);
+                  window.location.reload();
             })
 }
 
@@ -47,7 +48,8 @@ const GithubSignIn = () => {
       signInWithPopup(auth, provider)
             .then(result => {
                   localStorage.setItem("email", result.user.email);
-                  localStorage.setItem("name", result.user.displayName)
+                  localStorage.setItem("name", result.user.displayName);
+                  window.location.reload();
             })
             .catch(error => {
                   console.log(error.length)
