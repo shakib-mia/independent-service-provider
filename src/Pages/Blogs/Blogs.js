@@ -26,18 +26,18 @@ const Blogs = () => {
                                     <p>I use firebase, because firebase is simple, lightweight, beginners friendly and industrially recognized.</p>
                                     <p>
                                           We can use other options instead of firebase. They are...
-                                          <ul>
-                                                <li>Flutter</li>
-                                                <li>Parse.</li>
-                                                <li>Back4App</li>
-                                                <li>AWS Amplify</li>
-                                                <li>Kuzzle</li>
-                                                <li>Couchbase</li>
-                                                <li>NativeScripts</li>
-                                                <li>RxDB</li>
-                                                ...and so on
-                                          </ul>
                                     </p>
+                                    <ul>
+                                          <li>Flutter</li>
+                                          <li>Parse.</li>
+                                          <li>Back4App</li>
+                                          <li>AWS Amplify</li>
+                                          <li>Kuzzle</li>
+                                          <li>Couchbase</li>
+                                          <li>NativeScripts</li>
+                                          <li>RxDB</li>
+                                          ...and so on
+                                    </ul>
                               </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2">
