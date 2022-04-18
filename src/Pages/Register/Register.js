@@ -36,6 +36,7 @@ const GoogleSignIn = () => {
       const provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider)
             .then(result => {
+                  result.user.sendEmailVerification();
                   localStorage.setItem("email", result.user.email);
                   localStorage.setItem("name", result.user.displayName);
                   window.location.reload();
