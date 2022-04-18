@@ -11,7 +11,7 @@ const Login = () => {
                   <input type="password" id="password" className='form-control' placeholder='Password' />
                   <button type='submit' className='btn btn-primary mt-4'>Login</button>
 
-                  <h6>New in Samad's Edu Care? <Link to='/register'>Register Here</Link></h6>
+                  <h6 className='mt-3'>New in Samad's Edu Care? <Link className='text-decoration-none' to='/register'>Register Here</Link></h6>
             </div>
       );
 };
