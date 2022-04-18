@@ -4,7 +4,12 @@ import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 
 const Header = () => {
-      const email = localStorage.getItem('email')
+      const email = localStorage.getItem('email');
+
+      const SignOut = () => {
+            localStorage.removeItem('email');
+            window.location.reload()
+      }
       return (
             <div className='bg-violate sticky-top'>
                   <Navbar collapseOnSelect className='navbar' expand="lg">
@@ -17,7 +22,7 @@ const Header = () => {
                                           <NavLink to="/services" className='nav-link text-white'>Services</NavLink>
                                           <NavLink to="/blogs" className="nav-link text-white">Blogs</NavLink>
                                           {
-                                                email ? <span className='text-white my-auto'>{localStorage.getItem('name')} <button className='btn btn-secondary'>SignOut</button></span> : <NavLink to="/login" className='nav-link text-white'>Sign In</NavLink>
+                                                email ? <span className='text-white my-auto'>{localStorage.getItem('name')} <button className='btn btn-secondary' onClick={SignOut}>SignOut</button></span> : <NavLink to="/login" className='nav-link text-white'>Sign In</NavLink>
                                           }
                                     </Nav>
                               </Navbar.Collapse>

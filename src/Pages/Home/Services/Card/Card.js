@@ -12,7 +12,7 @@ const Card = (props) => {
                         </div>
                         <div className="card-footer">
                               <h5>{props.price}</h5>
-                              <Link to="/checkout" className="btn btn-primary">Book Now</Link>
+                              <Link to="/checkout" className="btn btn-primary" onClick={window.location.reload}>Book Now</Link>
                         </div>
                   </div>
             </div>
