@@ -1,7 +1,10 @@
-import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import app from '../../firebase.init';
+import googleIcon from '../../images/social/Google__G__Logo.png';
+import githubIcon from "../../images/social/github.png"
+import facebookIcon from "../../images/social/facebook-icon.png";
 
 const auth = getAuth(app);
 
@@ -23,6 +26,17 @@ const register = event => {
       } else {
             alert("passwords didn't match")
       }
+}
+
+
+const GoogleSignIn = () => {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider)
+            .then(result => {
+                  localStorage.setItem("email", result.user.email)
+                  localStorage.setItem("name", result.user.displayName)
+                  localStorage.setItem("email", result.user.email)
+            })
 }
 
 const Register = () => {
@@ -60,6 +74,16 @@ const Register = () => {
                         <input type="submit" value="Register" className='btn btn-success' onClick={register} />
 
                         <h6 className='mt-3'>Already a Member? <Link to="/login" className='text-decoration-none'>Please Login</Link></h6>
+                        <div className='d-flex'>
+                              <hr className='w-100' />
+                              <p className='px-4 pt-1'>or</p>
+                              <hr className='w-100' />
+                        </div>
+                        <div className='text-center'>
+                              <button className='col-8 my-2 btn btn-outline-success' onClick={GoogleSignIn}>Continue With Google <img src={googleIcon} width="25px" alt="" /></button>
+                              <button className='col-8 my-2 btn btn-outline-dark'>Continue With Github <img src={githubIcon} width="25px" alt="" /></button>
+                              <button className='col-8 my-2 btn btn-outline-primary'>Continue With Facebook <img src={facebookIcon} width="25px" alt="" /></button>
+                        </div>
                   </form>
             </div>
       );
