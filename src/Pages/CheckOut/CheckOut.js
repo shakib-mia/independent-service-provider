@@ -1,10 +1,15 @@
 import React from 'react';
+import { Container } from 'react-bootstrap';
+import Card from '../Home/Services/Card/Card';
 
 const CheckOut = () => {
+      const productImage = localStorage.getItem('productImage')
+      const productDesc = localStorage.getItem('productDesc')
+      const productPrice = localStorage.getItem('productPrice')
       return (
-            <div>
-                  This is CheckOut Page
-            </div>
+            <Container className='row'>
+                  <div className="col-6"><Card image={productImage} description={productDesc} price={productPrice}></Card></div>
+            </Container>
       );
 };
 

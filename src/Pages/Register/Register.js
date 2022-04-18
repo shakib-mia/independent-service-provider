@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import app from '../../firebase.init';
 import googleIcon from '../../images/social/Google__G__Logo.png';
 import githubIcon from "../../images/social/github.png"
@@ -22,6 +22,7 @@ const Registration = event => {
                         const user = result.user;
                         localStorage.setItem('email', user.email);
                         localStorage.setItem("name", firstName + " " + lastName);
+                        window.location.reload()
                   })
                   .catch(err => document.getElementById('error').innerText = err);
 
