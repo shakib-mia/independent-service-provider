@@ -9,7 +9,9 @@ const Card = (props) => {
                         <div className="card-body">
                               <h3>{props.title}</h3>
                               <p>{props.description}</p>
-                              <small>{props.price}</small>
+                        </div>
+                        <div className="card-footer">
+                              <h5>{props.price}</h5>
                               <Link to="/checkout" className="btn btn-primary">Book Now</Link>
                         </div>
                   </div>

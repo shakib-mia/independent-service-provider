@@ -16,7 +16,7 @@ const Services = () => {
                   <h1 className='text-center'>Our Packages</h1>
                   <div className="row row-cols-lg-4 row-cols-md-3 row-cols-1 justify-content-center gap-3 mt-4">
                         {
-                              services.map(service => <Card key={service.id} title={service.title} image={service.img}></Card>)
+                              services.map(service => <Card key={service.id} title={service.title} image={service.img} price={service.price} description={service.description}></Card>)
                         }
                   </div>
             </Container>
