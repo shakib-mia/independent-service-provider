@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import app from '../../firebase.init';
 import googleIcon from '../../images/social/Google__G__Logo.png';
 import githubIcon from "../../images/social/github.png"
@@ -8,7 +8,7 @@ import facebookIcon from "../../images/social/facebook-icon.png";
 
 const auth = getAuth(app);
 
-const register = event => {
+const Registration = event => {
       let email = document.getElementById('email').value;
       let password = document.getElementById('password').value;
       let confirmPass = document.getElementById('confirm-password').value;
@@ -22,7 +22,6 @@ const register = event => {
                         const user = result.user;
                         localStorage.setItem('email', user.email);
                         localStorage.setItem("name", firstName + " " + lastName);
-                        window.location.reload();
                   })
                   .catch(err => document.getElementById('error').innerText = err);
 
@@ -52,7 +51,7 @@ const GithubSignIn = () => {
                   window.location.reload();
             })
             .catch(error => {
-                  console.log(error.length)
+                  console.log(error)
             })
 }
 
@@ -88,7 +87,7 @@ const Register = () => {
                               <input type="password" id="confirm-password" className='form-control' title='Re-type Your Password' placeholder='Re-type Your Password' />
                         </div>
                         <div id="error" className="text-danger"></div>
-                        <input type="submit" value="Register" className='btn btn-success' onClick={register} />
+                        <input type="submit" value="Register" className='btn btn-success' onClick={Registration} />
 
                         <h6 className='mt-3'>Already a Member? <Link to="/login" className='text-decoration-none'>Please Login</Link></h6>
                   </form>

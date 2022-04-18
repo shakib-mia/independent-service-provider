@@ -1,7 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
+      let navigate = useNavigate();
+      const booking = () => {
+            navigate('/checkout')
+            window.location.reload();
+      }
+
       return (
             <div>
                   <div className="card shadow h-100">
@@ -12,7 +18,7 @@ const Card = (props) => {
                         </div>
                         <div className="card-footer">
                               <h5>{props.price}</h5>
-                              <Link to="/checkout" className="btn btn-primary" onClick={window.location.reload}>Book Now</Link>
+                              <button className="btn btn-primary" onClick={booking}>Book Now</button>
                         </div>
                   </div>
             </div>
