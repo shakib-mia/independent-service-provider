@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css'
 
 const Header = () => {
+      const email = localStorage.getItem('email')
       return (
             <div className='bg-violate sticky-top'>
                   <Navbar collapseOnSelect className='navbar' expand="lg">
@@ -12,11 +13,12 @@ const Header = () => {
                               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                               <Navbar.Collapse id="responsive-navbar-nav">
                                     <Nav className="ms-auto">
-                                          <Link to="/" className='nav-link text-white'>Home</Link>
-                                          <Link to="/services" className='nav-link text-white'>Services</Link>
-                                          <Link to="/login" className='nav-link text-white'>
-                                                Login
-                                          </Link>
+                                          <NavLink to="/" className='nav-link text-white'>Home</NavLink>
+                                          <NavLink to="/services" className='nav-link text-white'>Services</NavLink>
+                                          <NavLink to="/blogs" className="nav-link text-white">Blogs</NavLink>
+                                          {
+                                                email ? <span className='text-white my-auto'>{localStorage.getItem('name')} <button>SignOut</button></span> : <NavLink to="/login" className='nav-link text-white'>Sign In</NavLink>
+                                          }
                                     </Nav>
                               </Navbar.Collapse>
                         </Container>

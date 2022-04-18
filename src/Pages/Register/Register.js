@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import app from '../../firebase.init';
@@ -35,16 +35,28 @@ const GoogleSignIn = () => {
             .then(result => {
                   localStorage.setItem("email", result.user.email)
                   localStorage.setItem("name", result.user.displayName)
-                  localStorage.setItem("email", result.user.email)
+            })
+}
+
+const GithubSignIn = () => {
+      const provider = new GithubAuthProvider();
+
+      signInWithPopup(auth, provider)
+            .then(result => {
+                  localStorage.setItem("email", result.user.email);
+                  localStorage.setItem("name", result.user.displayName)
+            })
+            .catch(error => {
+                  console.log(error.length)
             })
 }
 
 const Register = () => {
       return (
-            <div>
+            <div className='shadow col-6 mx-auto p-4'>
                   <h1 className='text-center'>Please Register</h1>
 
-                  <form className='shadow col-6 mx-auto p-4'>
+                  <form>
                         <div className="row">
                               <div className="my-3 col-6">
                                     <label htmlFor="firstName">First Name</label>
@@ -74,17 +86,17 @@ const Register = () => {
                         <input type="submit" value="Register" className='btn btn-success' onClick={register} />
 
                         <h6 className='mt-3'>Already a Member? <Link to="/login" className='text-decoration-none'>Please Login</Link></h6>
-                        <div className='d-flex'>
-                              <hr className='w-100' />
-                              <p className='px-4 pt-1'>or</p>
-                              <hr className='w-100' />
-                        </div>
-                        <div className='text-center'>
-                              <button className='col-8 my-2 btn btn-outline-success' onClick={GoogleSignIn}>Continue With Google <img src={googleIcon} width="25px" alt="" /></button>
-                              <button className='col-8 my-2 btn btn-outline-dark'>Continue With Github <img src={githubIcon} width="25px" alt="" /></button>
-                              <button className='col-8 my-2 btn btn-outline-primary'>Continue With Facebook <img src={facebookIcon} width="25px" alt="" /></button>
-                        </div>
                   </form>
+                  <div className='d-flex'>
+                        <hr className='w-100' />
+                        <p className='px-4 pt-1'>or</p>
+                        <hr className='w-100' />
+                  </div>
+                  <div className='text-center'>
+                        <button className='col-8 my-2 btn btn-outline-success' onClick={GoogleSignIn}>Continue With Google <img src={googleIcon} width="25px" alt="" /></button>
+                        <button className='col-8 my-2 btn btn-outline-dark' onClick={GithubSignIn}>Continue With Github <img src={githubIcon} width="25px" alt="" /></button>
+                        <button className='col-8 my-2 btn btn-outline-primary'>Continue With Facebook <img src={facebookIcon} width="25px" alt="" /></button>
+                  </div>
             </div>
       );
 };
