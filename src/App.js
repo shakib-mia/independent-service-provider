@@ -7,9 +7,9 @@ import './App.css'
 import CheckOut from './Pages/CheckOut/CheckOut';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import Login from './Pages/Login/Login';
-import Register from './Pages/Register/Register';
 import Blogs from './Pages/Blogs/Blogs';
 import Footer from './Pages/Shared/Footer/Footer';
+import AboutMe from './Pages/AboutMe/AboutMe';
 
 function App() {
   const email = localStorage.getItem('email');
@@ -27,8 +27,8 @@ function App() {
               <CheckOut></CheckOut>
             </RequireAuth>
         }></Route>
+        <Route path='/aboutme' element={<AboutMe></AboutMe>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
       <Footer></Footer>
     </div>
