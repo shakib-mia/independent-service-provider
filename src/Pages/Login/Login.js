@@ -1,6 +1,6 @@
 import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import app from '../../firebase.init';
 import googleIcon from '../../images/social/Google__G__Logo.png';
 import githubIcon from "../../images/social/github.png"
@@ -43,16 +43,18 @@ const Login = () => {
       const handlePasswordBlur = event => {
             setPassword(event.target.value)
       }
+      const navigate = useNavigate();
 
       const handleSignIn = () => {
             createUserWithEmailAndPassword(auth, email, password)
                   .then(res => {
-                        window.location.reload();
                         const user = res.user;
                         if (user) {
                               localStorage.setItem('email', user.email);
                               verifyEmail();
+                              navigate('/checkout')
                         }
+                        window.location.reload();
                   })
                   .catch(error => {
                         console.error(error)
@@ -63,10 +65,9 @@ const Login = () => {
       }
 
       const verifyEmail = () => {
-            sendEmailVerification(auth.currentUser)
-                  .then(() => {
-                        alert("email verification sent")
-                  }).catch(err => console.error(err))
+            console.log(auth)
+            sendEmailVerification(auth.currentUser);
+            alert("email sent")
       }
 
       const resetPass = () => {

@@ -21,10 +21,9 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/checkout' element={
-          email ? <CheckOut></CheckOut> :
-            <RequireAuth>
-              <CheckOut></CheckOut>
-            </RequireAuth>
+          <RequireAuth>
+            <CheckOut></CheckOut>
+          </RequireAuth>
         }></Route>
         <Route path='/aboutme' element={<AboutMe></AboutMe>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
