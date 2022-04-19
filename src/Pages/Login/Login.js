@@ -1,6 +1,5 @@
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, sendSignInLinkToEmail, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import app from '../../firebase.init';
 import googleIcon from '../../images/social/Google__G__Logo.png';
