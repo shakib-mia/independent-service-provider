@@ -8,7 +8,7 @@ const CheckOut = () => {
       const productPrice = localStorage.getItem('productPrice')
       return (
             <Container className='row'>
-                  <div className="col-6"><Card image={productImage} description={productDesc} price={productPrice}></Card></div>
+                  <div className="col-12 col-lg-6"><Card image={productImage} description={productDesc} price={productPrice}></Card></div>
             </Container>
       );
 };
