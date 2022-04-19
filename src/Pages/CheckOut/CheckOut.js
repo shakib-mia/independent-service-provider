@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import Card from '../Home/Services/Card/Card';
 
 const CheckOut = () => {
+      window.location.reload();
       const productImage = localStorage.getItem('productImage')
       const productDesc = localStorage.getItem('productDesc')
       const productPrice = localStorage.getItem('productPrice')
