@@ -2,9 +2,9 @@
 
 Get experienced of this website from  [Here](https://dainty-puppy-ebf938.netlify.app/).
 
-## Features
+### Features
 
-In the project there have:
+## In the project there have:
 
 * This is a React based Single Page Application
 * It has react-router for why the website loads fast.
@@ -12,3 +12,10 @@ In the project there have:
 * In this website You can sign in with custom email, gmail and github.
 * It is a responsive website.
 
+### Technology used.
+
+* ReactJS.
+* React Router
+* React Bootstrap.
+* Firebase Authentication.
+etc...
