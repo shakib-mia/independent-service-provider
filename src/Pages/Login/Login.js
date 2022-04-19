@@ -49,10 +49,15 @@ const Login = () => {
                   .then(res => {
                         window.location.reload();
                         const user = res.user;
-                        localStorage.setItem('email', user.email);
-                        verifyEmail();
+                        if (user) {
+                              localStorage.setItem('email', user.email);
+                              verifyEmail();
+                        }
                   })
-                  .catch(error => console.error(error))
+                  .catch(error => {
+                        console.error(error)
+                        document.getElementById('error').innerHTML = error
+                  })
 
             localStorage.setItem('email', email)
       }
@@ -78,6 +83,7 @@ const Login = () => {
                   <input type="email" id="email" className='form-control' placeholder='Enter Your Email Here' onBlur={handleEmailBlur} required />
                   <label htmlFor="password" className='fw-bold mt-3'>Password</label>
                   <input type="password" id="password" className='form-control' placeholder='Password' onBlur={handlePasswordBlur} required />
+                  <div id="error" className='text-danger'></div>
                   <button type='submit' className='btn btn-primary mt-4' onClick={handleSignIn}>Login</button>
                   <button className='btn btn-info mt-4 ms-2' onClick={resetPass}>
                         Reset password
