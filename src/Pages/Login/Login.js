@@ -47,7 +47,7 @@ const Login = () => {
       const handleSignIn = () => {
             createUserWithEmailAndPassword(auth, email, password)
                   .then(res => {
-                        console.log(auth)
+                        window.location.reload();
                         const user = res.user;
                         localStorage.setItem('email', user.email);
                         verifyEmail();
