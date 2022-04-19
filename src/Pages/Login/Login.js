@@ -1,6 +1,6 @@
-import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, sendSignInLinkToEmail, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import app from '../../firebase.init';
 import googleIcon from '../../images/social/Google__G__Logo.png';
@@ -37,12 +37,6 @@ const GithubSignIn = () => {
 const Login = () => {
       const [email, setEmail] = useState('');
       const [password, setPassword] = useState('');
-      const [
-            signInWithEmailAndPassword,
-            user,
-            loading,
-            error,
-      ] = useSignInWithEmailAndPassword(auth);
 
       const handleEmailBlur = event => {
             setEmail(event.target.value)
@@ -54,18 +48,30 @@ const Login = () => {
       const handleSignIn = () => {
             createUserWithEmailAndPassword(auth, email, password)
                   .then(res => {
+                        console.log(auth)
                         const user = res.user;
-                        localStorage.setItem('email', user.email)
+                        localStorage.setItem('email', user.email);
+                        verifyEmail();
                   })
+                  .catch(error => console.error(error))
+
+            localStorage.setItem('email', email)
+      }
+
+      const verifyEmail = () => {
+            sendEmailVerification(auth.currentUser)
+                  .then(() => {
+                        console.log("email verification sent")
+                  }).catch(err => console.error(err))
       }
 
       return (
-            <div className='mt-4 col-10 col-lg-6 mx-auto shadow p-4'>
+            <div className='mt-4 col-10 col-lg-6 mx-auto shadow p-4' id='login'>
                   <h1 className='text-center'>Login Here</h1>
                   <label htmlFor="email" className='fw-bold'>Email</label>
-                  <input type="email" id="email" className='form-control' placeholder='Enter Your Email Here' onBlur={handleEmailBlur} />
+                  <input type="email" id="email" className='form-control' placeholder='Enter Your Email Here' onBlur={handleEmailBlur} required />
                   <label htmlFor="password" className='fw-bold mt-3'>Password</label>
-                  <input type="password" id="password" className='form-control' placeholder='Password' onBlur={handlePasswordBlur} />
+                  <input type="password" id="password" className='form-control' placeholder='Password' onBlur={handlePasswordBlur} required />
                   <button type='submit' className='btn btn-primary mt-4' onClick={handleSignIn}>Login</button>
                   <button className='btn btn-info mt-4 ms-2'
                         onClick={async () => {
