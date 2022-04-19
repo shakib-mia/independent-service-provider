@@ -61,7 +61,14 @@ const Login = () => {
       const verifyEmail = () => {
             sendEmailVerification(auth.currentUser)
                   .then(() => {
-                        console.log("email verification sent")
+                        alert("email verification sent")
+                  }).catch(err => console.error(err))
+      }
+
+      const resetPass = () => {
+            sendPasswordResetEmail(auth, email)
+                  .then(() => {
+                        alert("Reset Link Sent")
                   }).catch(err => console.error(err))
       }
 
@@ -73,13 +80,7 @@ const Login = () => {
                   <label htmlFor="password" className='fw-bold mt-3'>Password</label>
                   <input type="password" id="password" className='form-control' placeholder='Password' onBlur={handlePasswordBlur} required />
                   <button type='submit' className='btn btn-primary mt-4' onClick={handleSignIn}>Login</button>
-                  <button className='btn btn-info mt-4 ms-2'
-                        onClick={async () => {
-                              await sendPasswordResetEmail(email);
-                              alert('Sent email');
-                        }}
-
-                  >
+                  <button className='btn btn-info mt-4 ms-2' onClick={resetPass}>
                         Reset password
                   </button>
 
